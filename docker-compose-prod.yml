@@ -3,6 +3,11 @@ services:
   code-camp-nginx:
     ports:
       - "9010:80"
+  code-camp-mongo:
+    environment:
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
   code-camp-backend:
     build:
       context: .
@@ -10,4 +15,7 @@ services:
         NODE_ENV: prod
     environment:
       - NODE_ENV=prod
+      - MONGO_USER=${MONGO_USER}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - REDIS_SECRET=${REDIS_SECRET}
     command: npm start

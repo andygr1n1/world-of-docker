@@ -15,10 +15,6 @@ services:
   code-camp-mongo:
     image: mongo:4.0
     container_name: code-camp-mongo-container
-    environment:
-      - MONGO_INITDB_ROOT_PASSWORD=grini
-      - MONGO_INITDB_ROOT_USERNAME=grini
-      - MONGO_INITDB_DATABASE=mydatabase
     restart: always
     volumes:
       - mongo-code-camp-db:/data/db
