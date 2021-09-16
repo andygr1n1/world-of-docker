@@ -1,0 +1,36 @@
+version: "3"
+services:
+  code-camp-nginx:
+    image: nginx
+    container_name: code-camp-nginx-container
+    ports:
+      - "9009:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      # - ./nginx/sites-enabled/default.conf:/etc/nginx/conf.d/sites-enabled/default.conf
+    restart: always
+  code-camp-redis:
+    image: redis
+    container_name: code-camp-redis-container
+  code-camp-mongo:
+    image: mongo:4.0
+    container_name: code-camp-mongo-container
+    environment:
+      - MONGO_INITDB_ROOT_PASSWORD=grini
+      - MONGO_INITDB_ROOT_USERNAME=grini
+      - MONGO_INITDB_DATABASE=mydatabase
+    restart: always
+    volumes:
+      - mongo-code-camp-db:/data/db
+  code-camp-backend:
+    container_name: code-camp-backend-container
+    build: .
+    # ports:
+    #   - "9009:9009"
+    environment:
+      - PORT=9009
+    restart: always
+    depends_on:
+      - code-camp-mongo
+volumes:
+  mongo-code-camp-db:

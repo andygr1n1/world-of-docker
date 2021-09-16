@@ -1,0 +1,13 @@
+version: "3"
+services:
+  code-camp-nginx:
+    ports:
+      - "9010:80"
+  code-camp-backend:
+    build:
+      context: .
+      args:
+        NODE_ENV: prod
+    environment:
+      - NODE_ENV=prod
+    command: npm start
