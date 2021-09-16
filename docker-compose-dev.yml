@@ -3,6 +3,11 @@ services:
   code-camp-nginx:
     ports:
       - "9012:80"
+  code-camp-mongo:
+    environment:
+      - MONGO_INITDB_ROOT_PASSWORD=grini
+      - MONGO_INITDB_ROOT_USERNAME=grini
+      - MONGO_INITDB_DATABASE=mydatabase
   code-camp-backend:
     build:
       context: .

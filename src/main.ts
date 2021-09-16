@@ -20,9 +20,7 @@ const app = express()
 
 app.enable('trust proxy')
 
-app.use(cors({
-    
-}))
+app.use(cors({}))
 
 app.use(
     session({
@@ -73,4 +71,4 @@ mongoose
 
 const PORT: number | string = process.env.PORT || 9909
 
-app.listen(PORT, () => console.log(`listening on port ${PORT}`))
+app.listen(PORT, () => console.log(`listening on port ${PORT} ${MONGO_USER} ${MONGO_PASSWORD} ${MONGO_IP}`))
