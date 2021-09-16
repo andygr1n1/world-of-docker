@@ -2,7 +2,7 @@ version: "3"
 services:
   code-camp-nginx:
     ports:
-      - "9010:80"
+      - "80:80"
   code-camp-mongo:
     environment:
       - MONGO_INITDB_ROOT_PASSWORD=grini
