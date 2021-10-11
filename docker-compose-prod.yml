@@ -10,7 +10,7 @@ services:
       - MONGO_INITDB_DATABASE=mydatabase
   code-camp-backend:
     deploy:
-      replicas: 8
+      replicas: 2
       restart_policy:
         condition: any
       update_config:
