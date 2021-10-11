@@ -19,6 +19,7 @@ services:
       - mongo-code-camp-db:/data/db
   code-camp-backend:
     container_name: code-camp-backend-container
+    image: andygr1n1/world-of-docker:latest
     build: .
     # ports:
     #   - "9009:9009"
